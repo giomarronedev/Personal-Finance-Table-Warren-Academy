@@ -1,16 +1,28 @@
-let a = 2;
-let b = 2;
+const http = require("http");
+const fs = require("fs").promises;
 
-a = a + b;
-b = a + b;
+const hostname = "localhost";
+const port = 3000;
 
-if (a === b) {
-  a = a * b;
-} else {
-  b = 100;
+const server = http.createServer(trataReq);
+
+function trataReq(req, res) {
+  if (req.url === "/fizzbuzz") {
+    for (let i = 1; i <= 20; i++) {
+      const mensagem = fizzbuzz(i);
+      res.write(mensagem);
+    }
+    res.end();
+  } else {
+    fs.readFile("./index.html", "utf-8").then((texto) => {
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "text/html");
+      res.write(texto);
+      res.end();
+    });
+  }
 }
 
-console.log(a);
-console.log(b);
-
-
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
