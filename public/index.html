@@ -1,13 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Document</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-    <p>server simples criado</p>
-</body>
+  </head>
+  <body>
+    <div class="pagina">
+      <div class="conteudo">
+        <h1>Planilha de gastos</h1>
+
+        <div class="informacao" id="informacao">
+          <p id="saldo">R$ 0,00</p>
+        </div>
+
+        <table class="lista-transacoes">
+          <thead>
+            <th class="coluna-descricao">
+              <h3>DESCRIÇÃO</h3>
+            </th>
+            <th class="coluna-categoria">
+              <h3>CATEGORIA</h3>
+            </th>
+            <th class="coluna-valor">
+              <h3>VALOR</h3>
+            </th>
+          </thead>
+          <tbody id="lista-transacoes-conteudo">
+            <!-- <tr>
+              <td class="coluna-descricao">Salgado na faculdade</td>
+              <td class="coluna-categoria">Despesa</td>
+              <td class="coluna-valor">R$ 5,50</td>
+            </tr>
+            <tr>
+              <td class="coluna-descricao">Livro Clean Code</td>
+              <td class="coluna-categoria">Despesa</td>
+              <td class="coluna-valor">R$ 50,00</td>
+            </tr>
+            <tr>
+              <td class="coluna-descricao">Grana do estágio</td>
+              <td class="coluna-categoria">Receita</td>
+              <td class="coluna-valor">R$ 80,00</td>
+            </tr>
+            <tr>
+              <td class="coluna-descricao">Capinha pro celular</td>
+              <td class="coluna-categoria">Despesa</td>
+              <td class="coluna-valor">R$ 15,00</td>
+            </tr> -->
+          </tbody>
+        </table>
+      </div>
+      <div class="botoes">
+        <button class="despesa" id="botao-despesa" onclick="newOutcomePrompt()">
+          Adicionar despesa
+        </button>
+        <button class="receita" id="botao-receita" onclick="newIncomePrompt()">
+          Adicionar receita
+        </button>
+      </div>
+    </div>
+
+    <script src="./main.js"></script>
+  </body>
 </html>
