@@ -1,14 +1,5 @@
 const transacoes = {
-    transacoes: [
-      {
-        valor: 10,
-        descricao: "Pastel"
-      },
-      {
-        valor: 3,
-        descricao: "Doce"
-      }
-    ]
+    transacoes: []
   }
 
 class TransacoesRepositorio {
@@ -18,6 +9,7 @@ class TransacoesRepositorio {
     }
 
     criarTransacao(transacao) {
+      console.log(transacao)
         const lista = transacoes.transacoes
         lista.push(transacao)
     }
