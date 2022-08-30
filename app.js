@@ -1,6 +1,8 @@
+require('dotenv/config')
+
 const express = require('express')
 
-const TransacoesRepositorio = require("./infra/transacoes-repositorio")
+const TransacoesRepositorio = require("./infra/sql-transacoes-repositorio")
 
 const app = express()
 const port = 3000;
