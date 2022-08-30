@@ -1,6 +1,6 @@
 const express = require('express')
 
-const TransacoesRepositorio = require("./transacoes-repositorio")
+const TransacoesRepositorio = require("./infra/transacoes-repositorio")
 
 const app = express()
 const port = 3000;
@@ -8,9 +8,9 @@ const port = 3000;
 app.use(express.json())
 app.use(express.static(`${__dirname}/public`))
 
-app.get('/transacoes', (req, res) => {
+app.get('/transacoes', async (req, res) => {
   const repositorio = new TransacoesRepositorio()
-  const transacoes =  repositorio.listarTransacoes()
+  const transacoes =  await repositorio.listarTransacoes()
 
   let saldo = 0
   transacoes.transacoes.forEach((transacao) => {
