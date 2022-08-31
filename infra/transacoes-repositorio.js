@@ -13,6 +13,11 @@ class TransacoesRepositorio {
         const lista = transacoes.transacoes
         lista.push(transacao)
     }
+
+    limparTabela() {
+        const lista = transacoes.transacoes = []
+        return lista
+    }
 }
 
 module.exports = TransacoesRepositorio

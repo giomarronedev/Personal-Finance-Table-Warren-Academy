@@ -7,10 +7,15 @@ const TransacoesRepositorio = require("./infra/sql-transacoes-repositorio")
 const app = express()
 const port = process.env.PORT || 3000;
 
+function mostraReq(req) {
+  console.log(`${req.method} ${req.url} ${JSON.stringify(req.body)}`)
+}
+
 app.use(express.json())
 app.use(express.static(`${__dirname}/public`))
 
 app.get('/transacoes', async (req, res) => {
+  mostraReq(req)
   const repositorio = new TransacoesRepositorio()
   const transacoes =  await repositorio.listarTransacoes()
 
@@ -30,10 +35,19 @@ app.get('/transacoes', async (req, res) => {
 })
 
 app.post('/transacoes', (req, res) => {
+  mostraReq(req)
   const repositorio = new TransacoesRepositorio()
   const transacao = req.body
   console.log(req.body)
   repositorio.criarTransacao(transacao)
+  res.status(201).send(transacao)
+})
+
+app.delete('/transacoes', async (req, res) => {
+  mostraReq(req)
+  const repositorio = new TransacoesRepositorio()
+  const transacao = req.body
+  await repositorio.limparTabela()
   res.status(201).send(transacao)
 })
 

@@ -141,13 +141,29 @@ function adicionarReceita() {
   getTransacoes();
 }
 
+async function removeDados() {
+
+  const url = "/transacoes";
+
+  const requisicao = {
+    method: "DELETE"
+  };
+
+  await fetch(url, requisicao)
+
+  getTransacoes()
+}
+
 // adicionarDespesa();
 // adicionarReceita();
 
 // exibirFinancas();
 
 function setSaldo(saldo) {
-  document.getElementById("saldo").innerHTML = `Saldo: R$ ${saldo}`;
+  document.getElementById("saldo").innerHTML = `Saldo: ${Intl.NumberFormat("pt-BR", {
+    style: "currency",
+    currency: "BRL",
+  }).format(saldo)}`;
 }
 
 function adicionaTransacoes(transacoes) {
@@ -174,6 +190,9 @@ document
 document
   .getElementById("botao-receita")
   .addEventListener("click", adicionarReceita);
+document
+  .getElementById("botao-limpar")
+  .addEventListener("click", removeDados);
 
 async function getTransacoes() {
   const url = "/transacoes";
@@ -197,6 +216,7 @@ async function enviaDados(transacao) {
     },
   };
   await fetch(url, requisicao);
+  
 }
 
 getTransacoes();

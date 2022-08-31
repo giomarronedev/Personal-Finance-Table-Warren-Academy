@@ -21,6 +21,14 @@ class SqlTransacoesRepositorio {
     ];
     await pool.query(consulta, valores)
   }
+
+  async limparTabela() {
+    console.log("teste")
+    const consulta =
+      "DELETE FROM transacoes";
+    
+    await pool.query(consulta)
+  }
 }
 
 module.exports = SqlTransacoesRepositorio;
