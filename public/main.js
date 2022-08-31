@@ -151,8 +151,6 @@ function setSaldo(saldo) {
 }
 
 function adicionaTransacoes(transacoes) {
-
-
   let tabela = "";
 
   transacoes.reverse().forEach((transacao) => {
@@ -167,6 +165,7 @@ function adicionaTransacoes(transacoes) {
   });
   document.getElementById("lista-transacoes-conteudo").innerHTML = tabela;
 }
+
 
 // Aqui estamos criando os eventos de clique nos botões
 document
@@ -194,10 +193,10 @@ async function enviaDados(transacao) {
     method: "POST",
     body: JSON.stringify(transacao),
     headers: {
-      "content-type": "application/json"
-    }
+      "content-type": "application/json",
+    },
   };
-  await fetch(url, requisicao)
+  await fetch(url, requisicao);
 }
 
 getTransacoes();
